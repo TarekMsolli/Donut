@@ -48,8 +48,8 @@ function render(A, B){
         if(ooz > zbuffer[yp][xp]) {
           zbuffer[yp][xp] = ooz;
           let li = l * 8;
-          CTX.fillStyle=`rgba(255, 255, 255, ${l})`;
-          CTX.fillRect(xp, yp, 2, 2);
+          CTX.fillStyle=`rgba(255, 255, 255, ${li})`;
+          CTX.fillRect(xp, yp, 3, 3);
         }
       }
     }
@@ -97,4 +97,4 @@ setInterval(()=>{
     B = 0;
   }
   render(A, B);
-},5);
+},500);
