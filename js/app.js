@@ -84,4 +84,17 @@ function showArr(T){
   }
 }
 
-render(A, B);
+
+setInterval(()=>{
+  if(A < 2 * PI){
+    A += 0.01;
+  }else{
+    A = 0;
+  }
+  if(B < 2 * PI){
+    B += 0.01;
+  }else{
+    B = 0;
+  }
+  render(A, B);
+},5);
