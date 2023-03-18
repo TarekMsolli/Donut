@@ -10,7 +10,7 @@ const PHI_SPACING = 0.02;
 
 const R1 = 1;
 const R2 = 2;
-const K2 = 150;
+const K2 = 170;
 
 const K1 = WIDTH * K2 * 3 / (8 * (R1 + R2));
 
