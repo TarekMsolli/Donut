@@ -14,7 +14,7 @@ const K2 = 5;
 
 const K1 = WIDTH * K2 * 3 / (8 * (R1 + R2));
 
-var A=1, B=1;
+var A=0, B=0;
 
 const PI = Math.PI;
 
@@ -85,4 +85,4 @@ function showArr(T){
   }
 }
 
-render(A, B).catch(e);
+render(A, B);
