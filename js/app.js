@@ -46,10 +46,9 @@ function render(A, B){
       let l = cosphi * costheta * sinB - cosA * costheta * sinphi - sinA * sintheta + cosB * (cosA * sintheta - costheta * sinA * sinphi);
       if (l > 0) {     
         if(ooz > zbuffer[yp][xp]) {
-          
           zbuffer[yp][xp] = ooz;
           let li = l * 8;
-          CTX.fillStyle=`rgba(255, 255, 255, ${li})`;
+          CTX.fillStyle=`rgba(255, 255, 255, ${l})`;
           CTX.fillRect(xp, yp, 2, 2);
         }
       }
