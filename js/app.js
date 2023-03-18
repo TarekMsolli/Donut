@@ -10,7 +10,7 @@ const PHI_SPACING = 0.02;
 
 const R1 = 1;
 const R2 = 2;
-const K2 = 20;
+const K2 = 50;
 
 const K1 = WIDTH * K2 * 3 / (8 * (R1 + R2));
 
@@ -87,12 +87,12 @@ function showArr(T){
 
 setInterval(()=>{
   if(A < 2 * PI){
-    A += 0.01;
+    A += 0.02;
   }else{
     A = 0;
   }
   if(B < 2 * PI){
-    B += 0.01;
+    B += 0.02;
   }else{
     B = 0;
   }
