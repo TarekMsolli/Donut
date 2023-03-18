@@ -10,7 +10,7 @@ const PHI_SPACING = 0.02;
 
 const R1 = 1;
 const R2 = 2;
-const K2 = 50;
+const K2 = 150;
 
 const K1 = WIDTH * K2 * 3 / (8 * (R1 + R2));
 
@@ -48,8 +48,8 @@ function render(A, B){
         if(ooz > zbuffer[yp][xp]) {
           zbuffer[yp][xp] = ooz;
           let li = l * 8;
-          CTX.fillStyle=`rgba(255, 255, 255, ${li})`;
-          CTX.fillRect(xp, yp, 3, 3);
+          CTX.fillStyle=`rgba(255, 255, 255, 100)`;
+          CTX.fillRect(xp, yp, 1 * li, 1 * li);
         }
       }
     }
