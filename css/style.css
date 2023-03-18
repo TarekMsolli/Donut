@@ -4,6 +4,7 @@ body{
 }
 canvas{
     border: solid white 2px;
+    border-radius: 5px;
 }
 pre{
     background-color:#000;
