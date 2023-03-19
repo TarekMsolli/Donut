@@ -40,7 +40,7 @@ function render(A, B){
 
       let x = circlex * (cosB * cosphi + sinA * sinB * sinphi) - circley * cosA  *sinB;
       let y = circlex * (sinB * cosphi - sinA * cosB * sinphi) + circley * cosA * cosB;
-      let z = (K2 + cosA * circlex * sinphi + circley * sinA)  ;
+      let z = (K2 + cosA * circlex * sinphi + circley * sinA) - 0.75 ;
 
       let ooz = 0.5/z;
 
