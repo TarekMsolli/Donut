@@ -10,6 +10,16 @@
 <body>
     <div class="container">
         <canvas id="canvas" width="320" height="250"></canvas>
+        <div class="slidecontainer">
+            <p>z-rotation:</p>
+            <input type="range" min="0" max="6.28" value="0" step="0.2" class="slider" id="z-rotation">
+
+            <p>y-rotation:</p>
+            <input type="range" min="0" max="6.28" value="0" step="0.2" class="slider" id="y-rotation">
+        
+            <p>dot size:</p>
+            <input type="range" min="0" max="10" step="0.1" value="1" class="slider" id="size">
+        </div>
     </div>
     <script src="/js/app.js"></script>
 </body>

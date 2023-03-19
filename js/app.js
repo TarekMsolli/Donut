@@ -1,5 +1,6 @@
 var CANVAS = document.querySelector("#canvas");
 
+
 var CTX = CANVAS.getContext('2d');
 
 var WIDTH = CTX.canvas.width;
@@ -8,19 +9,22 @@ var HEIGHT = CTX.canvas.height;
 const THETA_SPACING = 0.07;
 const PHI_SPACING = 0.02;
 
-const R1 = 1;
-const R2 = 2;
-const K2 = 170;
+var R1 = 0.75;
+var R2 = 2;
+var K2 = 5;
 
-const K1 = WIDTH * K2 * 3 / (8 * (R1 + R2));
+var K1 = WIDTH * K2 * 3 / (8 * (R1 + R2 ));
 
-var A=0, B=0;
+var ZROTATION = document.querySelector("#z-rotation");
+
+var YROTATION = document.querySelector("#y-rotation");
 
 const PI = Math.PI;
 
 
 function render(A, B){
   colorBackground();
+  var DOTSIZE = document.querySelector("#size").value;
   let cosA = Math.cos(A), sinA = Math.sin(A), cosB = Math.cos(B), sinB = Math.sin(B);
 
   let zbuffer = fillOutput();
@@ -36,9 +40,9 @@ function render(A, B){
 
       let x = circlex * (cosB * cosphi + sinA * sinB * sinphi) - circley * cosA  *sinB;
       let y = circlex * (sinB * cosphi - sinA * cosB * sinphi) + circley * cosA * cosB;
-      let z = K2 + cosA * circlex * sinphi + circley * sinA;
+      let z = (K2 + cosA * circlex * sinphi + circley * sinA)  ;
 
-      let ooz = 1/z;
+      let ooz = 0.5/z;
 
       let xp = Math.floor(WIDTH/2 + K1 * ooz * x);
       let yp = Math.floor(HEIGHT/2 - K1 * ooz * y);
@@ -47,9 +51,9 @@ function render(A, B){
       if (l > 0) {     
         if(ooz > zbuffer[yp][xp]) {
           zbuffer[yp][xp] = ooz;
-          let li = l * 8;
-          CTX.fillStyle=`rgba(255, 255, 255, 100)`;
-          CTX.fillRect(xp, yp, 1 * li, 1 * li);
+          let li = Math.floor(l * 8);
+          CTX.fillStyle=`rgba(255, 255, 255, ${li})`;
+          CTX.fillRect(xp, yp, DOTSIZE, DOTSIZE);
         }
       }
     }
@@ -86,15 +90,5 @@ function showArr(T){
 
 
 setInterval(()=>{
-  if(A < 2 * PI){
-    A += 0.02;
-  }else{
-    A = 0;
-  }
-  if(B < 2 * PI){
-    B += 0.02;
-  }else{
-    B = 0;
-  }
-  render(A, B);
+  render(YROTATION.value, ZROTATION.value);
 },5);

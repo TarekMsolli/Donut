@@ -1,13 +1,14 @@
 body{
     background-color: #212121;
     text-align: center;
+    color: white;
 }
 
-pre{
-    background-color:#000;
-    color:#ccc;
-    font-size: 10pt;
-    width: 600px;
-    position: absolute;
-    margin-left: 0;
+.slidecontainer{
+    background-color: #000;
+    line-height: 0.5rem;
+    width: 51%;
+    margin: 0 24%;
+    height: 10rem;
+    padding: 5px;
 }
