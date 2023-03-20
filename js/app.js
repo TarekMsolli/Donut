@@ -9,11 +9,6 @@ var HEIGHT = CTX.canvas.height;
 const THETA_SPACING = 0.07;
 const PHI_SPACING = 0.02;
 
-var R1 = 0.75;
-var R2 = 2;
-var K2 = 5;
-
-var K1 = WIDTH * K2 * 3 / (8 * (R1 + R2 ));
 
 var ZROTATION = document.querySelector("#z-rotation");
 
@@ -24,15 +19,25 @@ const PI = Math.PI;
 
 function render(A, B){
   colorBackground();
+  var LUM = document.querySelector("#lum").value;
+  
+  var R1 = 0.75;
+  var R2 = 2;
+  var K2 = 5;
+
+  var K1 = WIDTH * K2 * 3 / (8 * (R1 + R2 ));
   var DOTSIZE = document.querySelector("#size").value;
+  var THETALIMIT = document.querySelector("#thetalimit").value;
+  var PHILIMIT = document.querySelector("#philimit").value;
+
   let cosA = Math.cos(A), sinA = Math.sin(A), cosB = Math.cos(B), sinB = Math.sin(B);
 
   let zbuffer = fillOutput();
 
-  for(let theta = 0; theta < 2 * PI; theta += THETA_SPACING){
+  for(let theta = 0; theta < THETALIMIT * PI; theta += THETA_SPACING){
     let costheta = Math.cos(theta), sintheta = Math.sin(theta);
 
-    for(let phi = 0; phi < 2 * PI; phi += PHI_SPACING){
+    for(let phi = 0; phi < PHILIMIT * PI; phi += PHI_SPACING){
       let cosphi = Math.cos(phi), sinphi = Math.sin(phi);
       
       let circlex = R2 + R1 * costheta;
@@ -51,7 +56,7 @@ function render(A, B){
       if (l > 0) {     
         if(ooz > zbuffer[yp][xp]) {
           zbuffer[yp][xp] = ooz;
-          let li = Math.floor(l * 8);
+          let li = l * LUM;
           CTX.fillStyle=`rgba(255, 255, 255, ${li})`;
           CTX.fillRect(xp, yp, DOTSIZE, DOTSIZE);
         }

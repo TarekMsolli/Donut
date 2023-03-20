@@ -12,13 +12,22 @@
         <canvas id="canvas" width="420" height="350"></canvas>
         <div class="slidecontainer">
             <p>z-rotation:</p>
-            <input type="range" min="0" max="6.28" value="0" step="0.2" class="slider" id="z-rotation">
+            <input type="range" min="0" max="6.28" value="0" step="0.02" class="slider" id="z-rotation">
 
             <p>y-rotation:</p>
-            <input type="range" min="0" max="6.28" value="0" step="0.2" class="slider" id="y-rotation">
+            <input type="range" min="0" max="6.28" value="0" step="0.02" class="slider" id="y-rotation">
         
             <p>dot size:</p>
-            <input type="range" min="0" max="10" step="0.1" value="1" class="slider" id="size">
+            <input type="range" min="0" max="8" step="0.1" value="1" class="slider" id="size">
+            
+            <p>theta limit:</p>
+            <input type="range" min="0" max="2" step="0.01" value="2" class="slider" id="thetalimit">
+            
+            <p>phi limit:</p>
+            <input type="range" min="0" max="2" step="0.01" value="2" class="slider" id="philimit">
+        
+            <p>lum intensity:</p>
+            <input type="range" min="0" max="50" step="0.01" value="8" class="slider" id="lum">
         </div>
     </div>
     <script src="/js/app.js"></script>
