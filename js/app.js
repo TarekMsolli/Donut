@@ -17,7 +17,7 @@ var YROTATION = document.querySelector("#y-rotation");
 const PI = Math.PI;
 
 
-function render(A, B){
+function render(A, B, COLOR){
   colorBackground();
   var LUM = document.querySelector("#lum").value;
   
@@ -57,7 +57,7 @@ function render(A, B){
         if(ooz > zbuffer[yp][xp]) {
           zbuffer[yp][xp] = ooz;
           let li = l * LUM;
-          CTX.fillStyle=`rgba(255, 255, 255, ${li})`;
+          CTX.fillStyle=`rgba(${hexToRgb(COLOR).r},${hexToRgb(COLOR).g},${hexToRgb(COLOR).b},${li})`;
           CTX.fillRect(xp, yp, DOTSIZE, DOTSIZE);
         }
       }
@@ -93,7 +93,17 @@ function showArr(T){
   }
 }
 
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
+}
+
+
 
 setInterval(()=>{
-  render(YROTATION.value, ZROTATION.value);
+  render(YROTATION.value, ZROTATION.value, document.querySelector("#color").value);
 },5);
